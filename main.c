@@ -7,13 +7,11 @@ int main(void)
     printf("정수를 입력하세요: ");
     scanf("%d", &number);
 
-    if (number > 0) {
-        printf("양수입니다.\n");
-    } else if (number < 0) {
-        printf("음수입니다.\n");
-    } else {
-        printf("0입니다.\n");
+    if (number < 0) {
+        number = -number;
     }
+
+    printf("절대값: %d\n", number);
 
     return 0;
 }
