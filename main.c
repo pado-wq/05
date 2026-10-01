@@ -2,37 +2,27 @@
 
 int main(void)
 {
-    int a, b;
-    char op;
+    int answer = 59;
+    int guess;
+    int count = 0;
 
-    printf("계산식을 입력하세요 (예: 2 + 5): ");
-    scanf("%d %c %d", &a, &op, &b);
+    do {
+        printf("숫자를 입력하세요: ");
+        scanf("%d", &guess);
 
-    switch (op) {
-        case '+':
-            printf("%d + %d = %d\n", a, b, a + b);
-            break;
+        count++;
 
-        case '-':
-            printf("%d - %d = %d\n", a, b, a - b);
-            break;
+        if (guess < answer) {
+            printf("입력한 숫자가 정답보다 작습니다.\n");
+        } else if (guess > answer) {
+            printf("입력한 숫자가 정답보다 큽니다.\n");
+        } else {
+            printf("정답입니다!\n");
+        }
 
-        case '*':
-            printf("%d * %d = %d\n", a, b, a * b);
-            break;
+    } while (guess != answer);
 
-        case '/':
-            if (b == 0) {
-                printf("0으로 나눌 수 없습니다.\n");
-            } else {
-                printf("%d / %d = %d\n", a, b, a / b);
-            }
-            break;
-
-        default:
-            printf("지원하지 않는 연산자입니다.\n");
-            break;
-    }
+    printf("총 %d번 시도했습니다.\n", count);
 
     return 0;
 }
