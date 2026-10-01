@@ -2,23 +2,37 @@
 
 int main(void)
 {
-    int number;
-    int i;
-    int sum = 0;
+    int a, b;
+    char op;
 
-    printf("양의 정수를 입력하세요: ");
-    scanf("%d", &number);
+    printf("계산식을 입력하세요 (예: 2 + 5): ");
+    scanf("%d %c %d", &a, &op, &b);
 
-    if (number < 1) {
-        printf("1 이상의 정수를 입력하세요.\n");
-        return 0;
+    switch (op) {
+        case '+':
+            printf("%d + %d = %d\n", a, b, a + b);
+            break;
+
+        case '-':
+            printf("%d - %d = %d\n", a, b, a - b);
+            break;
+
+        case '*':
+            printf("%d * %d = %d\n", a, b, a * b);
+            break;
+
+        case '/':
+            if (b == 0) {
+                printf("0으로 나눌 수 없습니다.\n");
+            } else {
+                printf("%d / %d = %d\n", a, b, a / b);
+            }
+            break;
+
+        default:
+            printf("지원하지 않는 연산자입니다.\n");
+            break;
     }
-
-    for (i = 1; i <= number; i++) {
-        sum += i;
-    }
-
-    printf("1부터 %d까지의 합: %d\n", number, sum);
 
     return 0;
 }
